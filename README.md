@@ -1,16 +1,45 @@
-# React + Vite
+# Taskify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Taskify is a simple task manager built with React and Vite. It lets you add, complete, and delete tasks, track progress, and switch between light and dark modes.
 
-Currently, two official plugins are available:
+## Features
+- Add tasks with priority (High, Medium, Low) and category (General, Work, Personal).
+- Mark tasks as complete or delete them.
+- Clear all tasks with one button.
+- See task progress with a progress bar.
+- Toggle light/dark mode for a better look.
+- Get notifications for adding, completing, deleting, and clearing tasks.
+- Works on desktop and mobile.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/Vijay0527/Taskify.git
+   cd Taskify
 
-## React Compiler
+   Install dependencies:
+   npm install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Run the app:
+npm run dev
+Open http://localhost:5173 in your browser.
 
-## Expanding the ESLint configuration
+How to Use:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Add Task: Type a task, pick a priority and category, and click "Add Task".
+
+Manage Tasks: Click "Complete" to mark done or "Delete" to remove. Use "Clear All" to reset.
+
+Progress: Check the progress bar to see completed tasks.
+
+Theme: Click the toggle button to switch between light and dark modes.
+
+Tech Used:
+
+React
+
+Vite
+
+CSS (with light/dark mode)
+
+Inter font (Google Fonts)
