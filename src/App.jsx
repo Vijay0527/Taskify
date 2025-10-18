@@ -6,6 +6,17 @@ import "./Style.css";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
+  const [theme, setTheme] = useState('light');
+
+  // Update body class when theme changes
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  // Toggle theme
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     localStorage.setItem
@@ -33,9 +44,12 @@ export default function App() {
   return(
     <div className="App">
       <header>
-      <h1 className="title">Task Focus</h1>
-      <p className="tagline">Our friendly TaskManager</p>
+      <h1 className="title">Taskify</h1>
+      <p className="tagline">Your friendly TaskManager</p>
       </header>
+      <button className="theme-toggle" onClick={toggleTheme}>
+        {theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+      </button>
       <Taskform addTask = {addTask}/>
       <TaskList tasks = {tasks} 
       updateTask = {updateTask}
