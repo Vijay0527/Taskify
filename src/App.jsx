@@ -1,40 +1,50 @@
-import TaskList from "./Components/TaskList";
 import Taskform from "./Components/Taskform";
-import ProgressTracker from "./Components/ProgressTracker";
+import TaskList from "./Components/TaskList";
+import Progresstracker from "./Components/ProgressTracker";
 import { useEffect, useState } from "react";
-import "./Style.css"
+import "./Style.css";
 
-function App() {
+export default function App() {
+  const [tasks, setTasks] = useState([]);
 
- const [tasks, setTasks] = useState([]);
-
- useEffect(() => {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
- });
+  useEffect(() => {
+    localStorage.setItem
+    ("tasks", JSON.stringify(tasks))
+  });
 
   const addTask = (task) => {
-    setTasks([...tasks, task]);
+    setTasks([...tasks,task]);
   }
 
-   const updateTask = (updatedTask, index) => {
-     const newtask = [...tasks];
-     newtask[index] = updateTask;
-     setTasks(newtask);
-   }
+  const updateTask = (updatedTask, index) => {
+    const newtask = [...tasks];
+     newtask[index] = updatedTask;
+    setTasks(newtask);
+  }
 
-   const deleteTask = (index) => {
-     setTasks(tasks.filter((_, i) => i != index));
-   }
+  const deleteTask = (index) => {
+      setTasks(tasks.filter((_, i) => i != index));
+  }
 
-  return (
-    <div>
-    <h1>Taskify</h1>
-    <p>Our friendly Task Manager</p>
-    <Taskform  addTask = {addTask}/>
-    <TaskList  tasks = {tasks} updateTask = {updateTask} deleteTask = {deleteTask}/>
-    <ProgressTracker />
-    <button>Clear All Tasks</button>
+  const clearTasks = () => {
+    setTasks([]);
+  }
+
+  return(
+    <div className="App">
+      <header>
+      <h1 className="title">Task Focus</h1>
+      <p className="tagline">Our friendly TaskManager</p>
+      </header>
+      <Taskform addTask = {addTask}/>
+      <TaskList tasks = {tasks} 
+      updateTask = {updateTask}
+      deleteTask = {deleteTask}/>
+      <Progresstracker tasks = {tasks}/>
+
+      {tasks.length>0 && 
+      (<button onClick={clearTasks} className="clear-btn">Clear all tasks</button>)}
+      
     </div>
   )
 }
-export default App;
